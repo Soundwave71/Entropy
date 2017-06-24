@@ -15,6 +15,7 @@
 #include <unordered_map>
 #include "EventDetails.h"
 #include "EnumHasher.h"
+#include "StateType.h"
 
 enum class EventType{
     KeyDown=sf::Event::KeyPressed,

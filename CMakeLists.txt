@@ -10,6 +10,6 @@ include_directories(${SFML_INCLUDE_DIR})
 set(SOURCE_FILES main.cpp Game.cpp Game.h SharedContext.h State_Game.cpp State_Game.h State_Intro.h State_Intro.cpp
         intro.png arial.ttf BaseState.cpp BaseState.h EventDetails.h EventManager.cpp EventManager.h Key.cfg
         State_MainMenu.h State_MainMenu.cpp State_Pause.h State_Pause.cpp StateManager.cpp StateManager.h Window.cpp
-        Window.h EnumHasher.h)
+        Window.h EnumHasher.h StateType.h)
 add_executable(Entropy ${SOURCE_FILES})
 target_link_libraries(Entropy ${SFML_LIBRARIES})
