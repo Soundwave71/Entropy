@@ -1,60 +1,40 @@
-//
-// Created by Leonardo on 4/23/2017.
-//
-
-#ifndef ENTROPY_WINDOW_H
-#define ENTROPY_WINDOW_H
-
-
+#pragma once
+#include <string>
+#include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include "EventManager.h"
 
-class Window {
+class Window{
 public:
+	Window();
+	Window(const std::string& title, const sf::Vector2u& size);
+	~Window();
 
-    //Window-related functions
-    Window ();
-    Window(const std::string& l_title, const sf::Vector2u l_size);
-    ~Window();
+	void BeginDraw();
+	void EndDraw();
 
-    //Clear-Display functions
-    void BeginDraw();
-    void EndDraw();
+	void Update();
 
-    //Updates window's attributes
-    void Update();
+	bool IsDone();
+	bool IsFullscreen();
+	bool IsFocused();
 
-    //Getter functions
-    bool is_Done();
-    bool is_Fullscreen();
-    sf::Vector2u GetWindowSize();
-    sf::RenderWindow* GetRenderWindow() { return &m_window; }
+	void ToggleFullscreen(EventDetails* l_details);
+	void Close(EventDetails* l_details = nullptr);
 
-    void Draw(sf::Drawable& l_drawable);
-
-    //EventManager-related functions
-    bool isFocused();
-    EventManager* GetEventManager();
-
-
-    void ToggleFullscreen (EventDetails* l_details);
-    void Close(EventDetails* l_details =nullptr);
-
+	sf::RenderWindow* GetRenderWindow();
+	EventManager* GetEventManager();
+	sf::Vector2u GetWindowSize();
 private:
-    void Setup(const std::string& l_title, const sf::Vector2u& l_size);
-    void Destroy();
-    void Create();
+	void Setup(const std::string& title, const sf::Vector2u& size);
+	void Create();
 
-    sf::RenderWindow m_window;
-    sf::Vector2u m_windowSize;
-    std::string m_windowTitle;
-    bool m_isDone;
-    bool m_isFullscreen;
-
-    EventManager m_eventManager;
-    bool m_isFocused;
+	sf::RenderWindow m_window;
+	EventManager m_eventManager;
+	sf::Vector2u m_windowSize;
+	std::string m_windowTitle;
+	bool m_isDone;
+	bool m_isFullscreen;
+	bool m_isFocused;
 };
-
-
-#endif //ENTROPY_WINDOW_H

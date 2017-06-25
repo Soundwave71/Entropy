@@ -1,25 +1,15 @@
 #include "Game.h"
 
-int main() {
-    //Program entry point
-    Game game;
+int main(){
+	// Program entry point.
+	Game game;
+	while(!game.GetWindow()->IsDone()){
 
+		game.Update();
 
-    //Game Loop
-    while(!game.GetWindow()->is_Done()){
+		game.Render();
 
-        //managing inputs
-        game.HandleInput();
-
-        //updating game
-        game.Update();
-
-        //Showing entities and tiles
-        game.Render();
-
-        //process state requests and reset clock for next frame
-        game.LateUpdate();
-    }
-
-    return 0;
+		game.LateUpdate();
+	}
+	return 0;
 }

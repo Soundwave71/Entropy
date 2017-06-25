@@ -7,9 +7,9 @@ set (CMAKE_MODULE_PATH "C:\\Users\\Leonardo paroli\\AppData\\Roaming\\JetBrains\
 find_package(SFML 2 COMPONENTS system window graphics audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIR})
 
-set(SOURCE_FILES main.cpp Game.cpp Game.h SharedContext.h State_Game.cpp State_Game.h State_Intro.h State_Intro.cpp
-        intro.png arial.ttf BaseState.cpp BaseState.h EventDetails.h EventManager.cpp EventManager.h Key.cfg
-        State_MainMenu.h State_MainMenu.cpp State_Pause.h State_Pause.cpp StateManager.cpp StateManager.h Window.cpp
-        Window.h EnumHasher.h StateType.h)
+set(SOURCE_FILES main.cpp BaseState.h EventManager.h EventManager.cpp Game.h Game.cpp Mushroom.png
+        arial.ttf intro.png keys.cfg StateManager.h StateManager.cpp SharedContext.h State_Game.h State_Game.cpp
+        State_Intro.h State_Intro.cpp State_MainMenu.h State_MainMenu.cpp State_Paused.cpp State_Paused.h Window.h
+        Window.cpp EnumHasher.h)
 add_executable(Entropy ${SOURCE_FILES})
 target_link_libraries(Entropy ${SFML_LIBRARIES})

@@ -1,35 +1,27 @@
-//
-// Created by Leonardo on 4/23/2017.
-//
-
-
-#ifndef ENTROPY_GAME_H
-#define ENTROPY_GAME_H
-
+#pragma once
 #include "Window.h"
+#include "EventManager.h"
 #include "StateManager.h"
+#include "SharedContext.h"
+#include <iostream>
 
-class Game {
+class Game{
 public:
-    Game();
-    ~Game();
+	Game();
+	~Game();
 
-    void HandleInput();
-    void Update();
-    void Render();
-    Window* GetWindow();
+	void Update();
+	void Render();
+	void LateUpdate();
 
-    sf::Time GetElapsed();
-    void RestartClock();
+	sf::Time GetElapsed();
 
-    void LateUpdate();
+	Window* GetWindow();
 private:
-    SharedContext m_context;
-    Window m_window;
-    sf::Clock m_clock;
-    sf::Time m_elapsed;
-    StateManager m_stateManager;
+	SharedContext m_context;
+	Window m_window;
+	StateManager m_stateManager;
+	sf::Clock m_clock;
+	sf::Time m_elapsed;
+	void RestartClock();
 };
-
-
-#endif //ENTROPY_GAME_H
